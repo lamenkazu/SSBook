@@ -2,7 +2,9 @@
 function App() {
 
   return (
-    <h1>Hello SSBook!</h1>
+    <>
+      <h1>Hello SBBook</h1>
+    </>
   )
 }
 
