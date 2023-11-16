@@ -12,17 +12,17 @@ export const GlobalStyles = createGlobalStyle`
     :root{
         font-size: 62.5%;
         
-        @media(max-width: ${DEVICE_BREAKPOINTS.MD}){
+        /* @media(max-width: ${DEVICE_BREAKPOINTS.MD}){
             
             font-size: 52.5%;
             
-        }
+        } */
 
-        @media(max-width: ${DEVICE_BREAKPOINTS.XS}){
+        /* @media(max-width: ${DEVICE_BREAKPOINTS.XS}){
 
             font-size: 42.5%;
             
-        }
+        } */
     }
 
     :focus{
@@ -62,13 +62,10 @@ export const GlobalStyles = createGlobalStyle`
         width: .4rem;
     }
 
-    ::-webkit-scrollbar-track{
-        background-color: ${({theme}) => theme.PURPLE};
-        border-radius: 10rem;
-
+    ::-webkit-scrollbar-thumb {
+        background-color: transparent; /* para navegadores baseados em WebKit (Chrome, Safari, etc.) */
     }
-
-    ::-webkit-scrollbar-thumb{
-        background-color: ${({theme}) => theme.WHITE}
+    ::-webkit-scrollbar-track {
+        background-color: transparent; /* para navegadores baseados em WebKit (Chrome, Safari, etc.) */
     }
 `

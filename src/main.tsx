@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components'
 import { defaultTheme } from './styles/themes/default.ts'
 import {GlobalStyles} from './styles/global'
 
-import { Home } from './pages/Home'
+import { Routes } from './routes'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <GlobalStyles/>
 
 
-      <Home/>
+      <Routes/>
 
     </ThemeProvider>
   </React.StrictMode>,
