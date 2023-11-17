@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { DEVICE_BREAKPOINTS } from './../../styles/deviceBreakpoints';
 
 interface ListItemProps{
-  isSelected?:boolean;
+  $isselected?:string;
 }
 
 export const Container = styled.div`
@@ -10,6 +11,9 @@ export const Container = styled.div`
   border-bottom-right-radius: 3.2rem;
 
   grid-area: 'bottomNav';
+
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}){
+  }
 
 `;
 
@@ -56,6 +60,6 @@ export const ListItem = styled.li<ListItemProps>`
 
   padding: 1.3rem 1.1rem ;
 
-  border-bottom: ${({theme, isSelected}) => isSelected ? `.5rem solid ${theme.PURPLE}`  : 'none'};
+  border-bottom: ${({theme, $isselected}) => $isselected === 'true' ? `.5rem solid ${theme.PURPLE}`  : 'none'};
 
 `

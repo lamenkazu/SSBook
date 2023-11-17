@@ -1,65 +1,68 @@
-import { Capsule } from "../../components/Capsule";
-import { Section } from "../../components/Section";
-import { Container, Main, FavBooks, 
+import { Container, FavBooks, 
          FavAuthors, FavAuthor, 
          FavBook, LibTags, LibBooks,
-         LibBook } from "./styles";
+         LibBook, StyledLink } from "./styles";
+
+import { useQuery, QueryResult} from '@apollo/client'
+import { AllBooksCategoryResponse, BOOK_CATEGORIES, FavAuthorsResponse, FavoriteBooksResponse, 
+         GET_FAV_AUTHORS, GET_FAV_BOOKS, 
+         GET_LIB_BOOKS, LibAllBooksResponse, mapCategoryToLabel } from './queries';
+         
+import { Capsule } from "../../components/Capsule";
+import { Section } from "../../components/Section";
+import { MainCard } from "../../components/MainCard";
+
+
 
 export function Home() {
+
+  const {data: favBooks} : QueryResult<FavoriteBooksResponse> = useQuery(GET_FAV_BOOKS)
+  const {data: favAuthors} : QueryResult<FavAuthorsResponse> = useQuery(GET_FAV_AUTHORS)
+  const {data: allBooks} : QueryResult<LibAllBooksResponse> = useQuery(GET_LIB_BOOKS)
+  const {data: allBooksCategory} : QueryResult<AllBooksCategoryResponse> = useQuery(BOOK_CATEGORIES)
+  
+  const uniqueCategories  = [
+    ...new Set(
+      allBooksCategory?.allBooks
+        .map(book => 
+            mapCategoryToLabel(book.category)
+        )
+    )
+  ]
+
   return (
     <Container>
 
       <Section title="Livros favoritos" hasMore>
         <FavBooks>
-          <FavBook>
-            <img src="https://github.com/lamenkazu.png" alt="Capa do livro" />
-            <h3>O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne</h3>
-            <span>Julia Quinn</span>
-          </FavBook>
-
-          <FavBook>
-            <img src="https://github.com/lamenkazu.png" alt="Capa do livro" />
-            <h3>O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne</h3>
-            <span>Julia Quinn</span>
-          </FavBook>
-
-          <FavBook>
-            <img src="https://github.com/lamenkazu.png" alt="Capa do livro" />
-            <h3>O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne</h3>
-            <span>Julia Quinn</span>
-          </FavBook>
+          {favBooks?.favoriteBooks.map(favBook =>
+            <StyledLink to={`/details/${favBook.id}`} key={favBook.id}>
+              <FavBook >
+                <img src={favBook.cover} alt="Capa do livro" />
+                <h3> {favBook.name} </h3>
+                <span> {favBook.author.name} </span>
+              </FavBook>
+            </StyledLink>
+          )}
+          
         </FavBooks>
       </Section>
-      
-      
 
-
-      <Main>
+      <MainCard>
         <Section title="Autores favoritos" hasMore>
           <FavAuthors>
-            <FavAuthor>
-              <img src="https://github.com/lamenkazu.png" alt="" />
-              <div>
-                <h3>Connie Brockway</h3>
-                <span>6 livros</span>
-              </div>
-            </FavAuthor>
 
-            <FavAuthor>
-              <img src="https://github.com/lamenkazu.png" alt="" />
-              <div>
-                <h3>Connie Brockway</h3>
-                <span>6 livros</span>
-              </div>
-            </FavAuthor>
+            {favAuthors?.favoriteAuthors.map(favAuthor => 
+              <FavAuthor key={favAuthor.id}>
+                <img src={favAuthor.picture} alt="" />
+                <div>
+                  <h3> {favAuthor.name} </h3>
+                  <span> {favAuthor.booksCount} livros </span>
+                </div>
+              </FavAuthor>
+            )}
+            
 
-            <FavAuthor>
-              <img src="https://github.com/lamenkazu.png" alt="" />
-              <div>
-                <h3>Connie Brockway</h3>
-                <span>6 livros</span>
-              </div>
-            </FavAuthor>
           </FavAuthors>
         </Section>
 
@@ -67,69 +70,28 @@ export function Home() {
 
           <LibTags>
             <Capsule title="Todos" isSelected/>
-            <Capsule title="Romance"/>
-            <Capsule title="Aventura"/>
-            <Capsule title="Comédia"/>
+
+            {uniqueCategories.map((category, index: number) => 
+              <Capsule key={index} title={category}/>
+            )}
           </LibTags>
 
           <LibBooks>
-            <LibBook>
-              <img src="https://github.com/lamenkazu.png" alt="" />
-              <div>
-                <h3>Connie Brockway</h3>
-                <span>6 livros</span>
-              </div>
-            </LibBook>
-
-            <LibBook>
-              <img src="https://github.com/lamenkazu.png" alt="" />
-              <div>
-                <h3>Connie Brockway</h3>
-                <span>6 livros</span>
-              </div>
-            </LibBook>
-
-            <LibBook>
-              <img src="https://github.com/lamenkazu.png" alt="" />
-              <div>
-                <h3>Connie Brockway</h3>
-                <span>6 livros</span>
-              </div>
-            </LibBook>
-
-            <LibBook>
-              <img src="https://github.com/lamenkazu.png" alt="" />
-              <div>
-                <h3>Connie Brockway</h3>
-                <span>6 livros</span>
-              </div>
-            </LibBook>
-
-            <LibBook>
-              <img src="https://github.com/lamenkazu.png" alt="" />
-              <div>
-                <h3>Connie Brockway</h3>
-                <span>6 livros</span>
-              </div>
-            </LibBook>
-
-            <LibBook>
-              <img src="https://github.com/lamenkazu.png" alt="" />
-              <div>
-                <h3>Connie Brockway</h3>
-                <span>6 livros</span>
-              </div>
-            </LibBook>
+            {allBooks?.allBooks.map(book => 
+              <StyledLink to={`/details/${book.id}`} key={book.id}>
+                <LibBook >
+                  <img src={book.cover} alt="" />
+                  <div>
+                    <h3> {book.name} </h3>
+                    <span>{book.author.name}</span>
+                  </div>
+                </LibBook>
+              </StyledLink>
+            )}
           </LibBooks>
 
-
         </Section>
-      </Main>
-
-      
-
-
-
+      </MainCard>
     </Container>
   )
 }

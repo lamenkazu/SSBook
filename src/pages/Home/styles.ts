@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -6,21 +7,19 @@ export const Container = styled.div`
 
 `;
 
-export const Main = styled.main`
-    grid-area: card;
-    background-color: ${({theme}) => theme.WHITE};
-    border-top-left-radius: 3.2rem;
-
-    padding: 2.2rem 0rem 9rem;
-    height: max-content;
-
-
-`
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit; // Para manter a cor padrão do texto
+`;
 
 export const FavBooks = styled.section`
     display: flex;
     gap: 2rem;
     overflow-x: scroll;
+
+    >Link{
+        text-decoration: none;
+    }
 
 
     grid-area: favoriteBooks;

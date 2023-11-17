@@ -5,9 +5,9 @@ interface CapsuleProps{
     isSelected?: boolean;
 }
 
-export function Capsule({title, isSelected} : CapsuleProps) {
+export function Capsule({title, isSelected = false} : CapsuleProps) {
   return (
-    <Container isSelected={isSelected}>
+    <Container $isselected={isSelected.toString()}>
         <p>{title}</p>
     </Container>
   )

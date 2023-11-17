@@ -6,13 +6,13 @@ interface SectionProps extends PropsWithChildren{
     hasMore?: boolean;
 }
 
-export function Section({title, children, hasMore}: SectionProps) {
+export function Section({title, children, hasMore = false}: SectionProps) {
   return (
     <Container>
 
         <div>
           <h2>{title}</h2>
-          <P hasMore={hasMore}>ver todos</P>
+          <P $hasmore={hasMore.toString()}>ver todos</P>
         </div>
 
         {children}

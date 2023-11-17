@@ -16,7 +16,7 @@ export function Header() {
 
       <Tab>
         <UnorderedList >
-          <ListItem isSelected>Meus livros</ListItem>
+          <ListItem $isselected='true'>Meus livros</ListItem>
           <ListItem>Emprestados</ListItem>
         </UnorderedList>
       </Tab>

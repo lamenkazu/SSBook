@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface SpanProps{
-    isActive?:boolean;
+    $isactive?:string;
   }
 
 export const Container = styled.div`
@@ -43,5 +43,5 @@ export const NavItem = styled.button`
 `
 
 export const Span = styled.span<SpanProps>`
-    color: ${({theme, isActive}) => isActive ? theme.PURPLE : theme.GRAY_200}
+    color: ${({theme, $isactive}) => $isactive === 'true' ? theme.PURPLE : theme.GRAY_200}
 `
