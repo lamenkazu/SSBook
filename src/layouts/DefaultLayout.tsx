@@ -9,6 +9,7 @@ import { DEVICE_BREAKPOINTS } from "../styles/deviceBreakpoints";
 export function DefaultLayout() {
   const location = useLocation();
 
+  //Esse código deve ser feito aqui e não no Styles, pois varia com a pagina.
   const mobileSize = Number(
     DEVICE_BREAKPOINTS.MD
     .replace(/\D/g, '') //remove todos os caracteres não numéricos da string, deixando apenas os números. 

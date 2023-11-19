@@ -1,65 +1,182 @@
-import styled from 'styled-components';
-import { DEVICE_BREAKPOINTS } from './../../styles/deviceBreakpoints';
-
-interface ListItemProps{
-  $isselected?:string;
-}
+import styled from "styled-components";
+import { DEVICE_BREAKPOINTS } from "./../../styles/deviceBreakpoints";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
-  background-color: ${({theme}) => theme.WHITE};
+  display: grid;
+  background-color: ${({ theme }) => theme.WHITE};
+  border-bottom-right-radius: 0;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.10);
 
-  border-bottom-right-radius: 3.2rem;
+  grid-area: header;
 
-  grid-area: 'bottomNav';
+  @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
+    width: 92%;
 
-  @media (max-width: ${DEVICE_BREAKPOINTS.MD}){
+    
+
+    border-bottom-right-radius: 3.2rem;
+
+    height: fit-content;
+    margin-bottom: 0;
+    padding-bottom: 0;
+
+
+    padding-left: 17.2rem;
+
+
+
   }
-
 `;
 
-export const Head = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  height: 5.6rem;
-  align-items: center;
-
-  
-  padding: .6rem 2rem;
+export const LogoLink = styled(Link)`
+  all: unset;
+  cursor: pointer;
 `;
 
 export const Logo = styled.img`
   height: 4.4rem;
   width: 7.8rem;
+  border: none;
 `;
 
-export const Avatar = styled.img`
-  width: 3.2rem;
+export const Head = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+
+  padding: 0.6rem 2rem;
+
+  height: min-content;
+
+
+  @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
+    border-bottom-right-radius: 3.2rem;
+  }
+
+`;
+
+
+
+export const Avatar = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+
+  >img{
+    width: 3.2rem;
   height: 3.2rem;
   border-radius: 50%;
+  }
+
+  >p{
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+
+  @media (max-width: calc(${DEVICE_BREAKPOINTS.MD} - 1px)){
+    >p{
+      display: none;
+    }
+  }
 `;
 
+export const LabelSrOnly = styled.label`
+  position: absolute;
+  width: 1px;
+  height: 1px;
 
-export const Tab = styled.div`
-    height: 4.8rem;
-`
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
 
-export const UnorderedList = styled.ul`
+  white-space: nowrap;
+  border-width: 0;
+  clip: rect(0, 0, 0, 0);
+`;
+export const Form = styled.form`
+  display: none;
+
+  @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
+    display: flex;
+    padding: 0.2rem;
+    border: 0.1rem solid currentColor;
+    border-radius: 0.5rem;
+
+    align-items: center;
+
+    width: 100%;
+
+    margin-inline: 2.4rem;
+
+    > input {
+      all: unset;
+      width: 100%;
+      margin: 0;
+      width: 100%;
+
+
+      padding: 1rem 1.6rem;
+
+      font-size: 1.4rem;
+      color: inherit;
+      border: 1px solid transparent;
+    }
+
+    > button {
+      all: unset;
+      cursor: pointer;
+      padding-right: 0.8rem;
+
+      img {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+  }
+`;
+
+export const Actions = styled.div`
+  display: none;
+
+  @media (min-width: ${DEVICE_BREAKPOINTS.MD}){
+    display: flex;
+    gap: 2.4rem;
+    align-items: center;
+  }
+  
+`;
+
+export const Action = styled.div`
   display: flex;
-  gap: 2rem;
-`
+  height: 4.8rem;
 
-export const ListItem = styled.li<ListItemProps>`
-  list-style-type: none;
+  >button{
+    background: none;
+    all: unset;
+    gap: 1.2rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    
+    label{
+      padding-bottom: .3rem;
+      cursor: pointer;
 
-  text-align: center;
-  font-size: 1.4rem;
-  font-weight: 700;
+    }
 
-  margin-left: 2rem;
+  }
 
-  padding: 1.3rem 1.1rem ;
+  
+`;
 
-  border-bottom: ${({theme, $isselected}) => $isselected === 'true' ? `.5rem solid ${theme.PURPLE}`  : 'none'};
+export const Separator = styled.div`
+  height: 3rem;
+    
+  border: 1px #E4E4E4 solid;
+
+  margin-right: 2.4rem;
 
 `

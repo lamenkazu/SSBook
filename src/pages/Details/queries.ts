@@ -16,7 +16,7 @@ export const GET_BOOK_DATA = gql`
 
 interface Author {
     name: string;
-  }
+}
 
 interface Book {
     name: string;

@@ -8,6 +8,8 @@ export const Container = styled.section`
     
     padding-inline: 2rem;
 
+    margin-right: 5%;
+
 
     >div{
 
@@ -37,5 +39,13 @@ export const P = styled.p<PProps>`
     font-size: 1.4rem;
     font-weight: 700;
     display: ${({$hasmore}) => $hasmore === 'true' ? 'block' : 'none'};
+
+    cursor: pointer;
+
+    transition: all 250ms ease;
+
+    &:hover{
+        transform: scale(1.1);
+    }
 
 `

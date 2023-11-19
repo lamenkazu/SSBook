@@ -11,6 +11,7 @@ import saveImg from '../../assets/save.svg'
 
 
 import { useState } from 'react';
+import { Footer } from '../../components/Footer';
 
 
 export const Details = () => {
@@ -98,6 +99,8 @@ export const Details = () => {
         
 
       </MainCard>
+
+      <Footer/>
     </Container>
   )
 }

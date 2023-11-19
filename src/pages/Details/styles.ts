@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import favoriteImg from '../../assets/favoritar.svg'
 import favoritedImg from '../../assets/favoritado.png'
+import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints';
 
 
 interface favoriteBook{
@@ -10,7 +11,7 @@ interface favoriteBook{
 
 export const Container = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: column;    
 `;
 
 export const Protection = styled.div`
@@ -35,8 +36,8 @@ export const Protection = styled.div`
             width: 2.4rem;
             height: 2.4rem;
         }
+  
     }
-
 
     >ul{
         display: flex;
@@ -71,11 +72,35 @@ export const Protection = styled.div`
         }
 
     }
+
+    @media (min-width: ${DEVICE_BREAKPOINTS.MD}){
+        display: none;
+    }
 `
 
 export const Cover = styled.img`
   width: 100%;
   object-fit: cover;
+
+    @media (min-width: ${DEVICE_BREAKPOINTS.MD}){
+        width: 29.6rem;
+        height: 43.3rem;
+
+        z-index: 2;
+        
+
+        position: absolute;
+        margin-top: 2.6rem;
+
+        margin-left: 11rem;
+
+    }
+
+    @media (min-width: ${DEVICE_BREAKPOINTS.LG}){
+        margin-left: 14rem;
+        
+
+    }
 
 `;
 
@@ -105,6 +130,22 @@ export const Title = styled.div`
         }
     }
 
+    @media (min-width: ${DEVICE_BREAKPOINTS.MD}){
+        >div{
+            margin-top: -11rem;
+
+            h2{
+                font-size: 3.4rem;
+            }
+
+            span{
+                font-size: 2.4rem;
+            }
+        }
+
+        
+    }
+
 `;
 
 export const Fav = styled.img<favoriteBook>`
@@ -112,8 +153,11 @@ export const Fav = styled.img<favoriteBook>`
     width: 2.4rem;
     height: 2.4rem;
 
-content: ${({ $isfavorite }) => `url(${($isfavorite === 'true' ? favoritedImg : favoriteImg)})`};
+    content: ${({ $isfavorite }) => `url(${($isfavorite === 'true' ? favoritedImg : favoriteImg)})`};
 
+    @media (min-width: ${DEVICE_BREAKPOINTS.MD}){
+        display: none;
+    }
 
 `
 
@@ -126,5 +170,19 @@ export const MainCard = styled.main`
     height: max-content;
 
     margin-top: -70%;
+
+    @media (min-width: ${DEVICE_BREAKPOINTS.MD}){
+        margin-top: 0;
+
+        align-self: end;
+        width: 90vw;
+        margin-top: 9.6rem;
+
+        padding-left: 33rem;
+
+        p{
+            width: 61.6rem;
+        }
+    }
 
 `

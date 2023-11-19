@@ -1,11 +1,12 @@
 import styled from 'styled-components';
+import { DEVICE_BREAKPOINTS } from '../../styles/deviceBreakpoints';
 
 interface SpanProps{
     $isactive?:string;
   }
 
 export const Container = styled.div`
-    grid-area: bottomNav;
+    grid-area: bottom;
     width: 100%;
     height: 5.6rem;
 
@@ -20,6 +21,12 @@ export const Container = styled.div`
     gap: 2.6rem;
     padding-inline: 1.9rem;
     justify-content: center;
+
+
+    @media (min-width: ${DEVICE_BREAKPOINTS.MD}){
+        display: none;
+   
+    }
 `;
 
 export const NavItem = styled.button`

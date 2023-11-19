@@ -6,23 +6,25 @@ export const Container = styled.div`
     margin: 0 auto;
 
     display: grid;
-    grid-template-columns: 100vw;
-    grid-template-rows: 10.4rem 37rem auto 5.6rem;
+    grid-template-columns: 100%;
+    grid-template-rows: 5rem auto auto;
 
     grid-template-areas: 
         "header"
-        "favoriteBooks"
-        "card"
-        "bottomNav"
+        "main"
+        "bottom"
     ;
 
-    @media (min-width: ${DEVICE_BREAKPOINTS.LG}){
+    @media (min-width: ${DEVICE_BREAKPOINTS.MD}){
+        grid-template-rows: 7.2rem 1fr auto;
+
+        grid-template-columns: 100vw;
+
         margin: 0;
 
         grid-template-areas: 
             "header"
-            "favoriteBooks"
-            "card"
+            "main"
             "footer"
         ;
     }
