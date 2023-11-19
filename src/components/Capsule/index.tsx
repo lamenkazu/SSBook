@@ -1,14 +1,14 @@
 import { Container } from "./styles";
 
-interface CapsuleProps{
-    title: string;
-    isSelected?: boolean;
+interface CapsuleProps {
+  title: string;
+  isSelected?: boolean;
 }
 
-export function Capsule({title, isSelected = false} : CapsuleProps) {
+export function Capsule({ title, isSelected = false }: CapsuleProps) {
   return (
     <Container $isselected={isSelected.toString()}>
-        <p>{title}</p>
+      <p>{title}</p>
     </Container>
-  )
+  );
 }

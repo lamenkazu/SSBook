@@ -6,14 +6,12 @@ export const Container = styled.div`
   display: grid;
   background-color: ${({ theme }) => theme.WHITE};
   border-bottom-right-radius: 0;
-  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.10);
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.1);
 
   grid-area: header;
 
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
     width: 92%;
-
-    
 
     border-bottom-right-radius: 3.2rem;
 
@@ -21,11 +19,7 @@ export const Container = styled.div`
     margin-bottom: 0;
     padding-bottom: 0;
 
-
     padding-left: 17.2rem;
-
-
-
   }
 `;
 
@@ -46,38 +40,33 @@ export const Head = styled.div`
   justify-content: space-between;
   align-items: center;
 
-
   padding: 0.6rem 2rem;
 
   height: min-content;
 
-
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
     border-bottom-right-radius: 3.2rem;
   }
-
 `;
-
-
 
 export const Avatar = styled.div`
   display: flex;
   align-items: center;
   gap: 1.2rem;
 
-  >img{
+  > img {
     width: 3.2rem;
-  height: 3.2rem;
-  border-radius: 50%;
+    height: 3.2rem;
+    border-radius: 50%;
   }
 
-  >p{
+  > p {
     font-size: 1.4rem;
     font-weight: 700;
   }
 
-  @media (max-width: calc(${DEVICE_BREAKPOINTS.MD} - 1px)){
-    >p{
+  @media (max-width: calc(${DEVICE_BREAKPOINTS.MD} - 1px)) {
+    > p {
       display: none;
     }
   }
@@ -117,7 +106,6 @@ export const Form = styled.form`
       margin: 0;
       width: 100%;
 
-
       padding: 1rem 1.6rem;
 
       font-size: 1.4rem;
@@ -141,42 +129,36 @@ export const Form = styled.form`
 export const Actions = styled.div`
   display: none;
 
-  @media (min-width: ${DEVICE_BREAKPOINTS.MD}){
+  @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
     display: flex;
     gap: 2.4rem;
     align-items: center;
   }
-  
 `;
 
 export const Action = styled.div`
   display: flex;
   height: 4.8rem;
 
-  >button{
+  > button {
     background: none;
     all: unset;
     gap: 1.2rem;
     display: flex;
     align-items: center;
     cursor: pointer;
-    
-    label{
-      padding-bottom: .3rem;
+
+    label {
+      padding-bottom: 0.3rem;
       cursor: pointer;
-
     }
-
   }
-
-  
 `;
 
 export const Separator = styled.div`
   height: 3rem;
-    
-  border: 1px #E4E4E4 solid;
+
+  border: 1px #e4e4e4 solid;
 
   margin-right: 2.4rem;
-
-`
+`;

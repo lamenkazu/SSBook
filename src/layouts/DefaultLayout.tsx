@@ -11,9 +11,8 @@ export function DefaultLayout() {
 
   //Esse código deve ser feito aqui e não no Styles, pois varia com a pagina.
   const mobileSize = Number(
-    DEVICE_BREAKPOINTS.MD
-    .replace(/\D/g, '') //remove todos os caracteres não numéricos da string, deixando apenas os números. 
-  )
+    DEVICE_BREAKPOINTS.MD.replace(/\D/g, "") //remove todos os caracteres não numéricos da string, deixando apenas os números.
+  );
 
   const [isMobile, setIsMobile] = useState(
     window.innerWidth <= mobileSize || !location.pathname.includes("/details/")
@@ -28,7 +27,7 @@ export function DefaultLayout() {
     };
 
     window.addEventListener("resize", handleResize);
-    handleResize()
+    handleResize();
 
     return () => {
       window.removeEventListener("resize", handleResize);

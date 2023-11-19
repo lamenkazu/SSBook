@@ -1,11 +1,11 @@
-import {gql} from '@apollo/client'
+import { gql } from "@apollo/client";
 
 export const GET_USER_PIC = gql`
-    query UserPic{
-        userPicture
-    }
-`
+  query UserPic {
+    userPicture
+  }
+`;
 
 export interface UserPic {
-    userPicture: string;
+  userPicture: string;
 }

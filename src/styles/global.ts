@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-import { DEVICE_BREAKPOINTS } from "./deviceBreakpoints";
 
 export const GlobalStyles = createGlobalStyle`
 
@@ -11,31 +10,20 @@ export const GlobalStyles = createGlobalStyle`
 
     :root{
         font-size: 62.5%;
-        
-        /* @media(max-width: ${DEVICE_BREAKPOINTS.MD}){
-            
-            font-size: 52.5%;
-            
-        } */
-
-        /* @media(max-width: ${DEVICE_BREAKPOINTS.XS}){
-
-            font-size: 42.5%;
-            
-        } */
     }
 
     :focus{
         outline: 0;
-        box-shadow: 0 0 0 .2rem ${({theme}) => theme.GRAY_100};
+        box-shadow: 0 0 0 .2rem ${({ theme }) => theme.GRAY_100};
     }
 
     body{
-        background-color: ${({theme}) => theme.BACKGROUND};
-        color: ${({theme}) => theme.GRAY_400};
+        background-color: ${({ theme }) => theme.BACKGROUND};
+        color: ${({ theme }) => theme.GRAY_400};
 
         -webkit-font-smoothing: antialiased;
 
+        overflow-x: hidden;
     }
 
     body, input, textarea, button{
@@ -59,7 +47,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     ::-webkit-scrollbar{
-        width: .4rem;
+        width: 0;
     }
 
     ::-webkit-scrollbar-thumb {
@@ -68,4 +56,4 @@ export const GlobalStyles = createGlobalStyle`
     ::-webkit-scrollbar-track {
         background-color: transparent; /* para navegadores baseados em WebKit (Chrome, Safari, etc.) */
     }
-`
+`;

@@ -1,4 +1,4 @@
-import {gql} from '@apollo/client'
+import { gql } from "@apollo/client";
 
 interface Author {
   name: string;
@@ -23,7 +23,7 @@ interface AllBooksCategory {
 }
 
 export interface AllBooksCategoryResponse {
-    allBooks: AllBooksCategory[];
+  allBooks: AllBooksCategory[];
 }
 
 export interface FavoriteBooksResponse {
@@ -31,75 +31,75 @@ export interface FavoriteBooksResponse {
 }
 
 export interface FavAuthorsResponse {
-    favoriteAuthors: FavoriteAuthor[];
+  favoriteAuthors: FavoriteAuthor[];
 }
 
 export interface LibAllBooksResponse {
-    allBooks: Book[];
+  allBooks: Book[];
 }
 
 //Favorite Books
 export const GET_FAV_BOOKS = gql`
-  query FavBooks{
-    favoriteBooks{
+  query FavBooks {
+    favoriteBooks {
       id
       name
       cover
-      author{
+      author {
         name
       }
     }
   }
-`
+`;
 
 //AllBooks
 export const GET_LIB_BOOKS = gql`
-  query LibAllBooks{
-    allBooks{
+  query LibAllBooks {
+    allBooks {
       id
       name
       cover
-      author{
+      author {
         name
       }
     }
   }
-`
+`;
 
 //Favorite authors
 export const GET_FAV_AUTHORS = gql`
-  query FavAuthors{
-    favoriteAuthors{
+  query FavAuthors {
+    favoriteAuthors {
       id
       name
       picture
       booksCount
     }
   }
-`
+`;
 
 export const BOOK_CATEGORIES = gql`
-  query AllBooksCategory{
-    allBooks{
+  query AllBooksCategory {
+    allBooks {
       category
     }
   }
-`
+`;
 
 export const mapCategoryToLabel = (category: string): string => {
   switch (category) {
-    case 'TECHNOLOGY':
-      return 'Tecnologia';
-    case 'TRAVEL':
-      return 'Viagem';
-    case 'HORROR':
-      return 'Terror';
-    case 'ADVENTURE':
-      return 'Aventura';
-    case 'COMEDY':
-      return 'Comédia';
-    case 'ROMANCE':
-      return 'Romance';
+    case "TECHNOLOGY":
+      return "Tecnologia";
+    case "TRAVEL":
+      return "Viagem";
+    case "HORROR":
+      return "Terror";
+    case "ADVENTURE":
+      return "Aventura";
+    case "COMEDY":
+      return "Comédia";
+    case "ROMANCE":
+      return "Romance";
     default:
       return category;
   }
