@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useQuery, QueryResult } from "@apollo/client";
 import {
   GET_LIB_BOOKS,
@@ -10,13 +9,15 @@ import { Container, LibBookContainer, LibBook } from "./styles";
 import { Progress } from "../../components/Progress";
 import { StyledLink } from "../StyledLink";
 
-export const LibBooks = () => {
+interface LibBooksProps {
+  selectedCategory: string;
+}
+
+export const LibBooks = ({ selectedCategory }: LibBooksProps) => {
   const {
     loading: allBooksLoading,
     data: allBooks,
   }: QueryResult<LibAllBooksResponse> = useQuery(GET_LIB_BOOKS);
-
-  const [selectedCategory, setSelectedCategory] = useState("Todos");
 
   return (
     <Container>

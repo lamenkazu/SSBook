@@ -1,5 +1,6 @@
-import { Container, Tab, UnorderedList, ListItem, Head } from "./styles";
+import { useState } from "react";
 
+import { Container, Tab, UnorderedList, ListItem, Head } from "./styles";
 import { Section } from "../../components/Section";
 import { MainCard } from "../../components/MainCard";
 import { Footer } from "../../components/Footer";
@@ -9,6 +10,8 @@ import { LibTags } from "../../components/LibTags";
 import { LibBooks } from "../../components/LibBooks";
 
 export function Home() {
+  const [selectedCategory, setSelectedCategory] = useState("Todos");
+
   return (
     <Container>
       <Head>
@@ -30,9 +33,12 @@ export function Home() {
         </Section>
 
         <Section title="Biblioteca">
-          <LibTags />
+          <LibTags
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+          />
 
-          <LibBooks />
+          <LibBooks selectedCategory={selectedCategory} />
         </Section>
       </MainCard>
 

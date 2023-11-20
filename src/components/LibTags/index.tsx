@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useQuery, QueryResult } from "@apollo/client";
 import {
   GET_LIB_BOOKS,
@@ -10,7 +9,15 @@ import { Capsule } from "../../components/Capsule";
 import { Container } from "./styles";
 import { Progress } from "../../components/Progress";
 
-export const LibTags = () => {
+interface LibTagsProps {
+  selectedCategory: string;
+  setSelectedCategory: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export const LibTags = ({
+  selectedCategory,
+  setSelectedCategory,
+}: LibTagsProps) => {
   const {
     loading: allBooksLoading,
     data: allBooks,
@@ -21,8 +28,6 @@ export const LibTags = () => {
       allBooks?.allBooks.map((book) => mapCategoryToLabel(book.category))
     ),
   ];
-
-  const [selectedCategory, setSelectedCategory] = useState("Todos");
 
   return (
     <Container>
