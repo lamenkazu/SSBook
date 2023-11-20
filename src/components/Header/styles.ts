@@ -11,7 +11,7 @@ export const Container = styled.div`
   grid-area: header;
 
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
-    width: 92%;
+    width: 91%;
 
     border-bottom-right-radius: 3.2rem;
 

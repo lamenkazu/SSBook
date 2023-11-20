@@ -71,7 +71,6 @@ export const Protection = styled.div`
 
 export const Cover = styled.img`
   width: 100%;
-  object-fit: cover;
   position: absolute;
   top: 0;
   left: 0;
