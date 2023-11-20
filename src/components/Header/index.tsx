@@ -14,11 +14,11 @@ import logoImg from "../../assets/Logo.svg";
 import searchImg from "../../assets/lupa.svg";
 import addImg from "../../assets/adicionar.svg";
 import heartImg from "../../assets/coração.svg";
-import { useQuery, QueryResult } from "@apollo/client";
-import { GET_USER_PIC, UserPic } from "./queries";
+// import { useQuery, QueryResult } from "@apollo/client";
+// import { GET_USER_PIC, UserPic } from "./queries";
 
 export function Header() {
-  const { data }: QueryResult<UserPic> = useQuery(GET_USER_PIC);
+  // const { data }: QueryResult<UserPic> = useQuery(GET_USER_PIC);
 
   return (
     <Container>
@@ -54,7 +54,8 @@ export function Header() {
         </Actions>
 
         <Avatar>
-          <img src={data?.userPicture} alt="Foto do usuário" />
+          {/* <img src={data?.userPicture} alt="Foto do usuário" /> */}
+          <img src="https://github.com/lamenkazu.png" alt="Foto do usuário" />
           <p>Jucicreide</p>
         </Avatar>
       </Head>

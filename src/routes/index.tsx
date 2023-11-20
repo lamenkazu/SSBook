@@ -4,7 +4,7 @@ import { AppRoutes } from "./app.routes";
 
 export function Routes() {
   return (
-    <BrowserRouter basename={"/SSBook/"}>
+    <BrowserRouter basename={"/SSBook"}>
       <AppRoutes />
     </BrowserRouter>
   );
