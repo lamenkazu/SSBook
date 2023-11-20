@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 interface SpanProps {
-  $isactive?: string;
+  $isActive?: boolean;
 }
 
 export const Container = styled.div`
@@ -48,6 +48,6 @@ export const NavItem = styled.button`
 `;
 
 export const Span = styled.span<SpanProps>`
-  color: ${({ theme, $isactive }) =>
-    $isactive === "true" ? theme.PURPLE : theme.GRAY_200};
+  color: ${({ theme, $isActive }) =>
+    $isActive ? theme.PURPLE : theme.GRAY_200};
 `;

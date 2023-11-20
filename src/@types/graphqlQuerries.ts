@@ -39,6 +39,18 @@ export interface AllBooksCategoryResponse {
   allBooks: AllBooksCategory[];
 }
 
+interface BookDetail {
+  name: string;
+  description: string;
+  cover: string;
+  isFavorite: boolean;
+  author: Author;
+}
+
+export interface GetBookDataResponse {
+  book: BookDetail;
+}
+
 export const GET_BOOK_DATA = gql`
   query GetBook($id: ID!) {
     book(id: $id) {
@@ -52,18 +64,6 @@ export const GET_BOOK_DATA = gql`
     }
   }
 `;
-
-interface BookDetail {
-  name: string;
-  description: string;
-  cover: string;
-  isFavorite: boolean;
-  author: Author;
-}
-
-export interface GetBookDataResponse {
-  book: BookDetail;
-}
 
 //Books Categories
 export const BOOK_CATEGORIES = gql`

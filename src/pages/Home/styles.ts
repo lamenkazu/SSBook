@@ -12,14 +12,14 @@ export const Container = styled.div`
   grid-template-columns: 100%;
   grid-template-rows: auto auto auto;
   grid-template-areas:
-    "favBooks"
+    "head"
     "main"
     "footer";
 
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
     grid-template-columns: auto auto;
     grid-template-areas:
-      "favBooks favBooks"
+      "head head"
       "main main"
       "footer footer";
 
@@ -57,7 +57,7 @@ export const Container = styled.div`
 `;
 
 export const Head = styled.div`
-  grid-area: favBooks;
+  grid-area: head;
 
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
     min-width: 20vw;

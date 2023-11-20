@@ -1,21 +1,31 @@
 import { Link, useParams } from "react-router-dom";
-import { Container, Cover, Title, Fav, Protection } from "./styles";
+import { Container, Cover, Protection } from "./styles";
+
+import { useState, useEffect } from "react";
 import { useQuery, QueryResult } from "@apollo/client";
 import {
   GET_BOOK_DATA,
   GetBookDataResponse,
 } from "../../@types/graphqlQuerries";
 
-import optionsImg from "../../assets/options.svg";
-import backImg from "../../assets/back.svg";
-
-import { useState, useEffect } from "react";
 import { MainCard } from "../../components/MainCard";
 import { Footer } from "../../components/Footer";
 import { DetailOptions } from "../../components/DetailOptions";
-// import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
+import optionsImg from "../../assets/options.svg";
+import backImg from "../../assets/back.svg";
+import { Title } from "../../components/Title";
 
 export const Details = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
+  //Options
+  const [isOptionsMenuVisible, setIsOptionsMenuVisible] = useState(false); //Visibilidade
+  const toggleOptionsMenu = () => {
+    setIsOptionsMenuVisible(!isOptionsMenuVisible);
+  };
+
   const { id } = useParams();
 
   const { data }: QueryResult<GetBookDataResponse> = useQuery(GET_BOOK_DATA, {
@@ -26,17 +36,6 @@ export const Details = () => {
 
   const descriptionWithBreaks =
     book?.description.replace(/\n/g, "<br />") || "";
-
-  //Options
-  const [isOptionsMenuVisible, setIsOptionsMenuVisible] = useState(false); //Visibilidade
-  const toggleOptionsMenu = () => {
-    setIsOptionsMenuVisible(!isOptionsMenuVisible);
-  };
-
-  useEffect(() => {
-    // Scroll to the top of the page when the component mounts
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []); // The empty dependency array ensures this effect runs only once when the component mounts
 
   return (
     <Container>
@@ -59,16 +58,11 @@ export const Details = () => {
       <MainCard>
         <Cover src={book?.cover} />
 
-        <Title>
-          <div>
-            <h2> {book?.name} </h2>
-            <span> {book?.author.name} </span>
-          </div>
-          <Fav
-            $isfavorite={book?.isFavorite.toString() || "false"}
-            alt="Icone de Favorito"
-          />
-        </Title>
+        <Title
+          name={book?.name}
+          authorName={book?.author.name}
+          isFavorite={book?.isFavorite}
+        />
 
         <p dangerouslySetInnerHTML={{ __html: descriptionWithBreaks }} />
         <DetailOptions />

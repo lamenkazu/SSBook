@@ -9,7 +9,7 @@ export function Bottom() {
     <Container>
       <NavItem>
         <img src={homeImg} alt="Icone casinha" />
-        <Span $isactive="true">Início</Span>
+        <Span $isActive>Início</Span>
       </NavItem>
 
       <NavItem>
