@@ -1,0 +1,38 @@
+import styled from "styled-components";
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
+
+export const Container = styled.div``;
+
+export const LibBookContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 3.5rem;
+  row-gap: 2rem;
+
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+export const LibBook = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  > img {
+    width: 4.8rem;
+    height: 7rem;
+    border-radius: 0.8rem;
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
+    > img {
+      height: 10rem;
+      width: 6.8rem;
+    }
+
+    > h3 {
+      width: 100%;
+    }
+  }
+`;
