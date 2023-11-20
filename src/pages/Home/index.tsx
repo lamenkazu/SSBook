@@ -32,8 +32,7 @@ import { MainCard } from "../../components/MainCard";
 import { Footer } from "../../components/Footer";
 import { useState } from "react";
 
-import LinearProgress from "@mui/joy/LinearProgress";
-import { defaultTheme } from "../../styles/themes/default";
+import { Progress } from "../../components/Progress";
 
 export function Home() {
   const {
@@ -48,10 +47,6 @@ export function Home() {
     loading: allBooksLoading,
     data: allBooks,
   }: QueryResult<LibAllBooksResponse> = useQuery(GET_LIB_BOOKS);
-  // const {
-  //   loading: allCategoriesLoading,
-  //   data: allBooksCategory,
-  // }: QueryResult<AllBooksCategoryResponse> = useQuery(BOOK_CATEGORIES);
 
   const uniqueCategories = [
     ...new Set(
@@ -84,11 +79,7 @@ export function Home() {
                 </StyledLink>
               ))
             ) : (
-              <LinearProgress
-                size="sm"
-                variant="soft"
-                style={{ color: defaultTheme.PURPLE }}
-              />
+              <Progress />
             )}
           </FavBooks>
         </Section>
@@ -108,11 +99,7 @@ export function Home() {
                 </FavAuthor>
               ))
             ) : (
-              <LinearProgress
-                size="sm"
-                variant="soft"
-                style={{ color: defaultTheme.PURPLE }}
-              />
+              <Progress />
             )}
           </FavAuthors>
         </Section>
@@ -135,11 +122,7 @@ export function Home() {
                 />
               ))
             ) : (
-              <LinearProgress
-                size="sm"
-                variant="soft"
-                style={{ color: defaultTheme.PURPLE }}
-              />
+              <Progress />
             )}
           </LibTags>
 
@@ -168,11 +151,7 @@ export function Home() {
                     </StyledLink>
                   ))
               ) : (
-                <LinearProgress
-                  size="sm"
-                  variant="soft"
-                  style={{ color: defaultTheme.PURPLE }}
-                />
+                <Progress />
               )}
             </LibBookContainer>
           </LibBooks>

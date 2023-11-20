@@ -89,6 +89,7 @@ export const UnorderedList = styled.ul`
 
 export const ListItem = styled.li<ListItemProps>`
   list-style-type: none;
+  cursor: pointer;
 
   text-align: center;
   font-size: 1.4rem;

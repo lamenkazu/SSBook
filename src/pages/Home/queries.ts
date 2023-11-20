@@ -19,14 +19,6 @@ export interface Book {
   author: Author;
 }
 
-interface AllBooksCategory {
-  category: string;
-}
-
-export interface AllBooksCategoryResponse {
-  allBooks: AllBooksCategory[];
-}
-
 export interface FavoriteBooksResponse {
   favoriteBooks: Book[];
 }
@@ -76,14 +68,6 @@ export const GET_FAV_AUTHORS = gql`
       name
       picture
       booksCount
-    }
-  }
-`;
-
-export const BOOK_CATEGORIES = gql`
-  query AllBooksCategory {
-    allBooks {
-      category
     }
   }
 `;
