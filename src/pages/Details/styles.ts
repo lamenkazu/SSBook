@@ -24,19 +24,18 @@ export const Container = styled.div`
 
     @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
       width: 90vw;
-      margin-top: 1.6rem;
       align-self: end;
       margin-top: 15rem;
 
       display: flex;
       flex-direction: column;
-      height: 150vh;
+      min-height: 60vh;
+      height: fit-content;
 
       p {
         width: 616px;
         margin-left: 32rem;
         margin-top: -6rem;
-        height: 100vh;
       }
     }
   }

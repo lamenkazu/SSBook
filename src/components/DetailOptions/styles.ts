@@ -34,8 +34,8 @@ export const Container = styled.ul`
   }
 
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
+    position: absolute;
     width: 29.6rem;
-    height: 100vh;
-    margin-top: -15rem;
+    margin-top: 28rem;
   }
 `;
