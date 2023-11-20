@@ -31,6 +31,49 @@ export interface LibAllBooksResponse {
   allBooks: Book[];
 }
 
+interface AllBooksCategory {
+  category: string;
+}
+
+export interface AllBooksCategoryResponse {
+  allBooks: AllBooksCategory[];
+}
+
+export const GET_BOOK_DATA = gql`
+  query GetBook($id: ID!) {
+    book(id: $id) {
+      name
+      description
+      cover
+      isFavorite
+      author {
+        name
+      }
+    }
+  }
+`;
+
+interface BookDetail {
+  name: string;
+  description: string;
+  cover: string;
+  isFavorite: boolean;
+  author: Author;
+}
+
+export interface GetBookDataResponse {
+  book: BookDetail;
+}
+
+//Books Categories
+export const BOOK_CATEGORIES = gql`
+  query AllBooksCategory {
+    allBooks {
+      category
+    }
+  }
+`;
+
 //Favorite Books
 export const GET_FAV_BOOKS = gql`
   query FavBooks {

@@ -1,7 +1,10 @@
 import { Link, useParams } from "react-router-dom";
 import { Container, Cover, Title, Fav, Protection } from "./styles";
 import { useQuery, QueryResult } from "@apollo/client";
-import { GET_BOOK_DATA, GetBookDataResponse } from "./queries";
+import {
+  GET_BOOK_DATA,
+  GetBookDataResponse,
+} from "../../@types/graphqlQuerries";
 
 import optionsImg from "../../assets/options.svg";
 import backImg from "../../assets/back.svg";

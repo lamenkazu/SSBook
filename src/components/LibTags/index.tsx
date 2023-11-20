@@ -1,9 +1,9 @@
 import { useQuery, QueryResult } from "@apollo/client";
 import {
-  GET_LIB_BOOKS,
-  LibAllBooksResponse,
+  AllBooksCategoryResponse,
+  BOOK_CATEGORIES,
   mapCategoryToLabel,
-} from "../../pages/Home/queries";
+} from "../../@types/graphqlQuerries";
 
 import { Capsule } from "../../components/Capsule";
 import { Container } from "./styles";
@@ -20,12 +20,12 @@ export const LibTags = ({
 }: LibTagsProps) => {
   const {
     loading: allBooksLoading,
-    data: allBooks,
-  }: QueryResult<LibAllBooksResponse> = useQuery(GET_LIB_BOOKS);
+    data: allCategories,
+  }: QueryResult<AllBooksCategoryResponse> = useQuery(BOOK_CATEGORIES);
 
   const uniqueCategories = [
     ...new Set(
-      allBooks?.allBooks.map((book) => mapCategoryToLabel(book.category))
+      allCategories?.allBooks.map((book) => mapCategoryToLabel(book.category))
     ),
   ];
 

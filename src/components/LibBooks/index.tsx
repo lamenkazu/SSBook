@@ -3,7 +3,7 @@ import {
   GET_LIB_BOOKS,
   LibAllBooksResponse,
   mapCategoryToLabel,
-} from "../../pages/Home/queries";
+} from "../../@types/graphqlQuerries";
 
 import { Container, LibBookContainer, LibBook } from "./styles";
 import { Progress } from "../../components/Progress";
