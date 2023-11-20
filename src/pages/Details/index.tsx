@@ -1,16 +1,16 @@
 import { Link, useParams } from "react-router-dom";
-import { Container, Cover, Title, MainCard, Fav, Protection } from "./styles";
+import { Container, Cover, Title, Fav, Protection } from "./styles";
 import { useQuery, QueryResult } from "@apollo/client";
 import { GET_BOOK_DATA, GetBookDataResponse } from "./queries";
 
 import optionsImg from "../../assets/options.svg";
 import backImg from "../../assets/back.svg";
-import heartImg from "../../assets/coração.svg";
-import shareImg from "../../assets/share.svg";
-import saveImg from "../../assets/save.svg";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { MainCard } from "../../components/MainCard";
 import { Footer } from "../../components/Footer";
+import { DetailOptions } from "../../components/DetailOptions";
+// import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 export const Details = () => {
   const { id } = useParams();
@@ -30,21 +30,10 @@ export const Details = () => {
     setIsOptionsMenuVisible(!isOptionsMenuVisible);
   };
 
-  const handleOptionClick = (option: number) => {
-    switch (option) {
-      case 1:
-        alert("Livro Favoritado");
-        break;
-      case 2:
-        alert("Compartilhando livro");
-        break;
-      case 3:
-        alert("Livro Salvo");
-        break;
-    }
-
-    setIsOptionsMenuVisible(false); // Fecha o menu de opções após a seleção
-  };
+  useEffect(() => {
+    // Scroll to the top of the page when the component mounts
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []); // The empty dependency array ensures this effect runs only once when the component mounts
 
   return (
     <Container>
@@ -60,28 +49,13 @@ export const Details = () => {
         )}
 
         {isOptionsMenuVisible && (
-          <ul>
-            <li onClick={() => handleOptionClick(1)}>
-              <img src={heartImg} alt="Icone coração" />
-              Favoritar
-            </li>
-
-            <li onClick={() => handleOptionClick(2)}>
-              <img src={shareImg} alt="Icone compartilhar" />
-              Compartilhar
-            </li>
-
-            <li onClick={() => handleOptionClick(3)}>
-              <img src={saveImg} alt="Icone salvar" />
-              Salvar em uma lista
-            </li>
-          </ul>
+          <DetailOptions setIsOptionsMenuVisible={setIsOptionsMenuVisible} />
         )}
       </Protection>
 
-      <Cover src={book?.cover} />
-
       <MainCard>
+        <Cover src={book?.cover} />
+
         <Title>
           <div>
             <h2> {book?.name} </h2>
@@ -94,6 +68,7 @@ export const Details = () => {
         </Title>
 
         <p dangerouslySetInnerHTML={{ __html: descriptionWithBreaks }} />
+        <DetailOptions />
       </MainCard>
 
       <Footer />

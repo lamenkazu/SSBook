@@ -11,6 +11,35 @@ interface favoriteBook {
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  min-width: 100vw;
+
+  > main {
+    background-color: ${({ theme }) => theme.WHITE};
+    border-top-left-radius: 3.2rem;
+
+    padding: 3.2rem 2rem 9rem;
+    height: max-content;
+
+    margin-top: 50%;
+
+    @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
+      width: 90vw;
+      margin-top: 1.6rem;
+      align-self: end;
+      margin-top: 15rem;
+
+      display: flex;
+      flex-direction: column;
+      height: 150vh;
+
+      p {
+        width: 616px;
+        margin-left: 32rem;
+        margin-top: -6rem;
+        height: 100vh;
+      }
+    }
+  }
 `;
 
 export const Protection = styled.div`
@@ -36,37 +65,6 @@ export const Protection = styled.div`
     }
   }
 
-  > ul {
-    display: flex;
-    flex-direction: column;
-    list-style-type: none;
-
-    gap: 0.5rem;
-
-    width: max-content;
-    padding: 0.3rem;
-
-    width: fit-content;
-
-    border-radius: 0.8rem;
-    background-color: ${({ theme }) => theme.WHITE};
-
-    li {
-      display: flex;
-      align-items: center;
-
-      gap: 1.6rem;
-
-      /* border-bottom: 1px solid ${({ theme }) => theme.GRAY_100}; */
-      width: 100%;
-
-      transition: all 0.2s ease;
-      &:hover {
-        transform: scale(0.9);
-      }
-    }
-  }
-
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
     display: none;
   }
@@ -75,17 +73,24 @@ export const Protection = styled.div`
 export const Cover = styled.img`
   width: 100%;
   object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
     width: 29.6rem;
     height: 43.3rem;
 
+    position: static;
+    top: 6rem;
+    left: auto;
+
     z-index: 2;
 
+    display: felx;
     position: absolute;
     margin-top: 2.6rem;
-
-    margin-left: 11rem;
   }
 `;
 
@@ -113,9 +118,12 @@ export const Title = styled.div`
   }
 
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
-    > div {
-      margin-top: -11rem;
+    padding-bottom: 2.4rem;
 
+    > div {
+      margin-left: 32rem;
+      margin-top: -17.5rem;
+      min-width: 60vw;
       h2 {
         font-size: 3.4rem;
       }
@@ -136,30 +144,5 @@ export const Fav = styled.img<favoriteBook>`
 
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
     display: none;
-  }
-`;
-
-export const MainCard = styled.main`
-  grid-area: card;
-  background-color: ${({ theme }) => theme.WHITE};
-  border-top-left-radius: 3.2rem;
-
-  padding: 3.2rem 2rem 9rem;
-  height: max-content;
-
-  margin-top: -70%;
-
-  @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
-    margin-top: 0;
-
-    align-self: end;
-    width: 90vw;
-    margin-top: 9.6rem;
-
-    padding-left: 33rem;
-
-    p {
-      width: 61.6rem;
-    }
   }
 `;

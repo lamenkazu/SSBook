@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 interface ListItemProps {
-  $isselected?: string;
+  $isSelected?: boolean;
 }
 
 export const Container = styled.div`
@@ -98,8 +98,8 @@ export const ListItem = styled.li<ListItemProps>`
 
   padding: 1.3rem 1.1rem;
 
-  border-bottom: ${({ theme, $isselected }) =>
-    $isselected === "true" ? `.5rem solid ${theme.PURPLE}` : "none"};
+  border-bottom: ${({ theme, $isSelected }) =>
+    $isSelected ? `.5rem solid ${theme.PURPLE}` : "none"};
 `;
 
 export const StyledLink = styled(Link)`
@@ -135,6 +135,7 @@ export const FavBook = styled.div`
 
   > img {
     width: 100%;
+    max-width: 13.6rem;
     height: 19.8rem;
     border-radius: 0.8rem;
   }

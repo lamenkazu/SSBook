@@ -56,7 +56,7 @@ export function Home() {
       <Head>
         <Tab>
           <UnorderedList>
-            <ListItem $isselected="true">Meus livros</ListItem>
+            <ListItem $isSelected>Meus livros</ListItem>
             <ListItem>Emprestados</ListItem>
           </UnorderedList>
         </Tab>

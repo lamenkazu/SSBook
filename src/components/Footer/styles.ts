@@ -5,7 +5,7 @@ export const Container = styled.div`
   grid-area: footer;
 
   background-color: ${({ theme }) => theme.PURPLE};
-  height: 8rem;
+  height: 4.8rem;
   width: 100vw;
 
   padding: 1.6rem 17.2rem;
