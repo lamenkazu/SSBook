@@ -15,6 +15,7 @@ export interface Book {
   id: number;
   name: string;
   cover: string;
+  category: string;
   author: Author;
 }
 
@@ -59,6 +60,7 @@ export const GET_LIB_BOOKS = gql`
       id
       name
       cover
+      category
       author {
         name
       }

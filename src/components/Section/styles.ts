@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface PProps {
-  $hasmore?: string;
+  $hasMore?: boolean;
 }
 
 export const Container = styled.section`
@@ -9,7 +9,7 @@ export const Container = styled.section`
 
   margin-right: 5%;
 
-  > div {
+  > div:first-child {
     display: flex;
     align-items: first baseline;
     justify-content: space-between;
@@ -28,7 +28,7 @@ export const P = styled.p<PProps>`
   text-align: center;
   font-size: 1.4rem;
   font-weight: 700;
-  display: ${({ $hasmore }) => ($hasmore === "true" ? "block" : "none")};
+  display: ${({ $hasMore }) => ($hasMore ? "block" : "none")};
 
   cursor: pointer;
 

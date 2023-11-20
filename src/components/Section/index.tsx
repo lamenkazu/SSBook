@@ -11,7 +11,7 @@ export function Section({ title, children, hasMore = false }: SectionProps) {
     <Container>
       <div>
         <h2>{title}</h2>
-        <P $hasmore={hasMore.toString()}>ver todos</P>
+        <P $hasMore={hasMore}>ver todos</P>
       </div>
 
       {children}

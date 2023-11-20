@@ -132,6 +132,7 @@ export const FavBooks = styled.section`
 
 export const FavBook = styled.div`
   min-width: 13.6rem;
+  max-width: min-content;
 
   > img {
     width: 100%;

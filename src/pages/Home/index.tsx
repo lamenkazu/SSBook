@@ -17,8 +17,6 @@ import {
 
 import { useQuery, QueryResult } from "@apollo/client";
 import {
-  AllBooksCategoryResponse,
-  BOOK_CATEGORIES,
   FavAuthorsResponse,
   FavoriteBooksResponse,
   GET_FAV_AUTHORS,
@@ -32,24 +30,36 @@ import { Capsule } from "../../components/Capsule";
 import { Section } from "../../components/Section";
 import { MainCard } from "../../components/MainCard";
 import { Footer } from "../../components/Footer";
+import { useState } from "react";
+
+import LinearProgress from "@mui/joy/LinearProgress";
+import { defaultTheme } from "../../styles/themes/default";
 
 export function Home() {
-  const { data: favBooks }: QueryResult<FavoriteBooksResponse> =
-    useQuery(GET_FAV_BOOKS);
-  const { data: favAuthors }: QueryResult<FavAuthorsResponse> =
-    useQuery(GET_FAV_AUTHORS);
-  const { data: allBooks }: QueryResult<LibAllBooksResponse> =
-    useQuery(GET_LIB_BOOKS);
-  const { data: allBooksCategory }: QueryResult<AllBooksCategoryResponse> =
-    useQuery(BOOK_CATEGORIES);
+  const {
+    loading: favBooksLoading,
+    data: favBooks,
+  }: QueryResult<FavoriteBooksResponse> = useQuery(GET_FAV_BOOKS);
+  const {
+    loading: favAuthorsLoading,
+    data: favAuthors,
+  }: QueryResult<FavAuthorsResponse> = useQuery(GET_FAV_AUTHORS);
+  const {
+    loading: allBooksLoading,
+    data: allBooks,
+  }: QueryResult<LibAllBooksResponse> = useQuery(GET_LIB_BOOKS);
+  // const {
+  //   loading: allCategoriesLoading,
+  //   data: allBooksCategory,
+  // }: QueryResult<AllBooksCategoryResponse> = useQuery(BOOK_CATEGORIES);
 
   const uniqueCategories = [
     ...new Set(
-      allBooksCategory?.allBooks.map((book) =>
-        mapCategoryToLabel(book.category)
-      )
+      allBooks?.allBooks.map((book) => mapCategoryToLabel(book.category))
     ),
   ];
+
+  const [selectedCategory, setSelectedCategory] = useState("Todos");
 
   return (
     <Container>
@@ -63,15 +73,23 @@ export function Home() {
 
         <Section title="Livros favoritos" hasMore>
           <FavBooks>
-            {favBooks?.favoriteBooks.map((favBook) => (
-              <StyledLink to={`/details/${favBook.id}`} key={favBook.id}>
-                <FavBook>
-                  <img src={favBook.cover} alt="Capa do livro" />
-                  <h3> {favBook.name} </h3>
-                  <span> {favBook.author.name} </span>
-                </FavBook>
-              </StyledLink>
-            ))}
+            {!favBooksLoading ? (
+              favBooks?.favoriteBooks.map((favBook) => (
+                <StyledLink to={`/details/${favBook.id}`} key={favBook.id}>
+                  <FavBook>
+                    <img src={favBook.cover} alt="Capa do livro" />
+                    <h3> {favBook.name} </h3>
+                    <span> {favBook.author.name} </span>
+                  </FavBook>
+                </StyledLink>
+              ))
+            ) : (
+              <LinearProgress
+                size="sm"
+                variant="soft"
+                style={{ color: defaultTheme.PURPLE }}
+              />
+            )}
           </FavBooks>
         </Section>
       </Head>
@@ -79,40 +97,83 @@ export function Home() {
       <MainCard>
         <Section title="Autores favoritos" hasMore>
           <FavAuthors>
-            {favAuthors?.favoriteAuthors.map((favAuthor) => (
-              <FavAuthor key={favAuthor.id}>
-                <img src={favAuthor.picture} alt="" />
-                <div>
-                  <h3> {favAuthor.name} </h3>
-                  <span> {favAuthor.booksCount} livros </span>
-                </div>
-              </FavAuthor>
-            ))}
+            {!favAuthorsLoading ? (
+              favAuthors?.favoriteAuthors.map((favAuthor) => (
+                <FavAuthor key={favAuthor.id}>
+                  <img src={favAuthor.picture} alt="" />
+                  <div>
+                    <h3> {favAuthor.name} </h3>
+                    <span> {favAuthor.booksCount} livros </span>
+                  </div>
+                </FavAuthor>
+              ))
+            ) : (
+              <LinearProgress
+                size="sm"
+                variant="soft"
+                style={{ color: defaultTheme.PURPLE }}
+              />
+            )}
           </FavAuthors>
         </Section>
 
         <Section title="Biblioteca">
           <LibTags>
-            <Capsule title="Todos" isSelected />
+            <Capsule
+              title="Todos"
+              isSelected={selectedCategory === "Todos"}
+              $onClick={() => setSelectedCategory("Todos")}
+            />
 
-            {uniqueCategories.map((category, index: number) => (
-              <Capsule key={index} title={category} />
-            ))}
+            {!allBooksLoading ? (
+              uniqueCategories.map((category, index: number) => (
+                <Capsule
+                  key={index}
+                  title={category}
+                  isSelected={selectedCategory === category}
+                  $onClick={() => setSelectedCategory(category)}
+                />
+              ))
+            ) : (
+              <LinearProgress
+                size="sm"
+                variant="soft"
+                style={{ color: defaultTheme.PURPLE }}
+              />
+            )}
           </LibTags>
 
           <LibBooks>
             <LibBookContainer>
-              {allBooks?.allBooks.map((book) => (
-                <StyledLink to={`/details/${book.id}`} key={book.id}>
-                  <LibBook>
-                    <img src={book.cover} alt="" />
-                    <div>
-                      <h3> {book.name} </h3>
-                      <span>{book.author.name}</span>
-                    </div>
-                  </LibBook>
-                </StyledLink>
-              ))}
+              {!allBooksLoading ? (
+                allBooks?.allBooks
+                  .filter((book) => {
+                    const bookCategoryLabel = mapCategoryToLabel(book.category);
+                    const selectedCategoryLabel =
+                      mapCategoryToLabel(selectedCategory);
+                    return (
+                      selectedCategory === "Todos" ||
+                      bookCategoryLabel === selectedCategoryLabel
+                    );
+                  })
+                  .map((book) => (
+                    <StyledLink to={`/details/${book.id}`} key={book.id}>
+                      <LibBook>
+                        <img src={book.cover} alt="" />
+                        <div>
+                          <h3> {book.name} </h3>
+                          <span>{book.author.name}</span>
+                        </div>
+                      </LibBook>
+                    </StyledLink>
+                  ))
+              ) : (
+                <LinearProgress
+                  size="sm"
+                  variant="soft"
+                  style={{ color: defaultTheme.PURPLE }}
+                />
+              )}
             </LibBookContainer>
           </LibBooks>
         </Section>

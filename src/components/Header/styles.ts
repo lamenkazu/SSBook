@@ -91,7 +91,7 @@ export const Form = styled.form`
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
     display: flex;
     padding: 0.2rem;
-    border: 0.1rem solid currentColor;
+    border: 0.1rem solid ${({ theme }) => theme.GRAY_100};
     border-radius: 0.5rem;
 
     align-items: center;
@@ -109,7 +109,7 @@ export const Form = styled.form`
       padding: 1rem 1.6rem;
 
       font-size: 1.4rem;
-      color: inherit;
+      color: ${({ theme }) => theme.GRAY_300};
       border: 1px solid transparent;
     }
 

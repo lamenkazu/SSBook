@@ -90,6 +90,8 @@ export const Cover = styled.img`
     display: felx;
     position: absolute;
     margin-top: 2.6rem;
+
+    border-radius: 0.8rem;
   }
 `;
 
