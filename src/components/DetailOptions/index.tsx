@@ -13,13 +13,13 @@ export const DetailOptions: React.FC<DetailOptionsProps> = ({
   const handleOptionClick = (option: number) => {
     switch (option) {
       case 1:
-        console.log("Livro Favoritado");
+        alert("Livro Favoritado");
         break;
       case 2:
-        console.log("Compartilhando livro");
+        alert("Compartilhando livro");
         break;
       case 3:
-        console.log("Livro Salvo");
+        alert("Livro Salvo");
         break;
     }
 

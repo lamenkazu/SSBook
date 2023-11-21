@@ -41,7 +41,7 @@ export const Details = () => {
     <Container>
       <Protection>
         <Link to="/">
-          <img src={backImg} alt="" />
+          <img src={backImg} alt="icone seta para voltar" />
         </Link>
 
         {!isOptionsMenuVisible && (
@@ -56,7 +56,7 @@ export const Details = () => {
       </Protection>
 
       <MainCard>
-        <Cover src={book?.cover} />
+        <Cover src={book?.cover} alt="Capa do livro" />
 
         <Title
           name={book?.name}
@@ -65,7 +65,7 @@ export const Details = () => {
         />
 
         <p dangerouslySetInnerHTML={{ __html: descriptionWithBreaks }} />
-        <DetailOptions />
+        <DetailOptions data-testid="options" />
       </MainCard>
 
       <Footer />

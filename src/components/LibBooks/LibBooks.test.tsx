@@ -1,41 +1,10 @@
 import { render, screen, waitFor } from "@testing-library/react";
 
 import { MemoryRouter } from "react-router-dom";
-import { LibBooks } from ".";
-import { GET_LIB_BOOKS } from "../../@types/graphqlQuerries";
 import { MockedProvider } from "@apollo/client/testing";
+import { mocks } from "../../Mocks/AppMocks";
 
-const mocks = [
-  {
-    request: {
-      query: GET_LIB_BOOKS,
-    },
-    result: {
-      data: {
-        allBooks: [
-          {
-            id: 1,
-            name: "labirinto dos ossos",
-            cover: "bones.png",
-            category: "Ficção Juvenil",
-            author: {
-              name: "Rick Riordan",
-            },
-          },
-          {
-            id: 2,
-            name: "uma nota errada",
-            cover: "river.png",
-            category: "Ficção Juvenil",
-            author: {
-              name: "Rick Riordan",
-            },
-          },
-        ],
-      },
-    },
-  },
-];
+import { LibBooks } from ".";
 
 describe("StyledLink Component", () => {
   it("should render <LibBooks/> sucessfully", () => {

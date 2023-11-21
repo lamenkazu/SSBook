@@ -3,6 +3,11 @@ import { render, fireEvent } from "@testing-library/react";
 import { DetailOptions } from ".";
 
 describe("DetailOptions Component", () => {
+  beforeAll(() => {
+    // Mock da função window.alert
+    jest.spyOn(window, "alert").mockImplementation(() => {});
+  });
+
   it("should render <DetailOptions/> sucessfully", () => {
     const { container } = render(<DetailOptions />);
     expect(container).toBeInTheDocument();

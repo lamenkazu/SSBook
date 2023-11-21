@@ -1,32 +1,8 @@
 import { render, waitFor, screen } from "@testing-library/react";
 import { MockedProvider } from "@apollo/client/testing";
 import { FavAuthors } from ".";
-import {
-  GET_FAV_AUTHORS,
-  FavAuthorsResponse,
-} from "../../@types/graphqlQuerries";
 
-const mockData: FavAuthorsResponse = {
-  favoriteAuthors: [
-    {
-      id: 1,
-      name: "Author 1",
-      picture: "url_da_imagem",
-      booksCount: 5,
-    },
-  ],
-};
-
-const mocks = [
-  {
-    request: {
-      query: GET_FAV_AUTHORS,
-    },
-    result: {
-      data: mockData,
-    },
-  },
-];
+import { mocks } from "../../Mocks/AppMocks";
 
 describe("FavAuthors Component", () => {
   it("should render <FavAuthors/> sucessfully", async () => {

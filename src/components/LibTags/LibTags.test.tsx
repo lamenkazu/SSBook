@@ -1,24 +1,8 @@
 import { fireEvent, render, waitFor, screen } from "@testing-library/react";
 import { LibTags } from ".";
-import { BOOK_CATEGORIES } from "../../@types/graphqlQuerries";
 import { MockedProvider } from "@apollo/client/testing";
 
-const category1 = "Ficção";
-const category2 = "Não-Ficção";
-const category3 = "Terceiro excluído";
-
-const mocks = [
-  {
-    request: {
-      query: BOOK_CATEGORIES,
-    },
-    result: {
-      data: {
-        allBooks: [{ category: category1 }, { category: category2 }],
-      },
-    },
-  },
-];
+import { mocks, category1, category2, category3 } from "../../Mocks/AppMocks";
 
 describe("LibTags Component", () => {
   it("should render <LibTags/> sicessfully", async () => {
