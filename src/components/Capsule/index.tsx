@@ -18,7 +18,7 @@ export function Capsule({
     }
   };
   return (
-    <Container $iSselected={isSelected} onClick={handleClick} {...rest}>
+    <Container $isSelected={isSelected} onClick={handleClick} {...rest}>
       <p>{title}</p>
     </Container>
   );

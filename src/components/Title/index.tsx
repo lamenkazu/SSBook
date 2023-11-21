@@ -13,7 +13,7 @@ export const Title = ({ name, authorName, isFavorite = false }: TitleProps) => {
         <h2> {name} </h2>
         <span> {authorName} </span>
       </div>
-      <Fav $isfavorite={isFavorite} alt="Icone de Favorito" />
+      <Fav $isFavorite={isFavorite} alt="Icone de Favorito" />
     </Container>
   );
 };
