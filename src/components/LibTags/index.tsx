@@ -3,7 +3,7 @@ import {
   AllBooksCategoryResponse,
   BOOK_CATEGORIES,
   mapCategoryToLabel,
-} from "../../@types/graphqlQuerries";
+} from "../../GraphQL";
 
 import { Capsule } from "../../components/Capsule";
 import { Container } from "./styles";

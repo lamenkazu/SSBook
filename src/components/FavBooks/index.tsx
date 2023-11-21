@@ -3,10 +3,7 @@ import { useQuery, QueryResult } from "@apollo/client";
 import { Container, FavBook } from "./styles";
 import { Progress } from "../../components/Progress";
 
-import {
-  FavoriteBooksResponse,
-  GET_FAV_BOOKS,
-} from "../../@types/graphqlQuerries";
+import { FavoriteBooksResponse, GET_FAV_BOOKS } from "../../GraphQL";
 import { StyledLink } from "../StyledLink";
 
 export function FavBooks() {

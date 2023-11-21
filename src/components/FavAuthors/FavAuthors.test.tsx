@@ -21,7 +21,6 @@ describe("FavAuthors Component", () => {
       </MockedProvider>
     );
 
-    // Aguarda até que a consulta GraphQL seja resolvida
     await waitFor(() => {
       expect(screen.getByText("Author 1")).toBeInTheDocument();
       expect(screen.getByText("5 livros")).toBeInTheDocument();
@@ -36,13 +35,9 @@ describe("FavAuthors Component", () => {
     );
 
     await waitFor(() => {
-      if (screen.queryByTestId("progress")) {
-        // Se o componente Progress existir, significa que ainda está carregando
-        expect(screen.getByTestId("progress")).toBeInTheDocument();
-      } else {
-        // Se o componente Progress não existir, significa que o carregamento foi concluído
-        expect(screen.queryByTestId("progress")).toBeNull();
-      }
+      screen.queryByTestId("progress")
+        ? expect(screen.getByTestId("progress")).toBeInTheDocument()
+        : expect(screen.queryByTestId("progress")).toBeNull();
     });
   });
 });

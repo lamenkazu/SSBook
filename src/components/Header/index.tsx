@@ -1,5 +1,7 @@
 import { useQuery, QueryResult } from "@apollo/client";
-import { GET_USER_PIC, UserPic } from "../../@types/graphqlQuerries";
+import { GET_USER_PIC, UserPic } from "../../GraphQL";
+
+import CircularProgress from "@mui/joy/CircularProgress";
 
 import {
   Container,
@@ -20,7 +22,7 @@ import heartImg from "../../assets/coração.svg";
 import Action from "../Action";
 
 export function Header() {
-  const { data }: QueryResult<UserPic> = useQuery(GET_USER_PIC);
+  const { loading, data }: QueryResult<UserPic> = useQuery(GET_USER_PIC);
 
   return (
     <Container>
@@ -55,7 +57,15 @@ export function Header() {
         </Actions>
 
         <Avatar>
-          <img src={data?.userPicture} alt="Foto do usuário" />
+          {loading ? (
+            <CircularProgress
+              size="sm"
+              variant="plain"
+              data-testid="progress"
+            />
+          ) : (
+            <img src={data?.userPicture} alt="Foto do usuário" />
+          )}
           <p>Jucicreide</p>
         </Avatar>
       </Head>

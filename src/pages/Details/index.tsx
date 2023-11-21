@@ -3,10 +3,7 @@ import { Container, Cover, Protection } from "./styles";
 
 import { useState, useEffect } from "react";
 import { useQuery, QueryResult } from "@apollo/client";
-import {
-  GET_BOOK_DATA,
-  GetBookDataResponse,
-} from "../../@types/graphqlQuerries";
+import { GET_BOOK_DATA, GetBookDataResponse } from "../../GraphQL";
 
 import { MainCard } from "../../components/MainCard";
 import { Footer } from "../../components/Footer";
