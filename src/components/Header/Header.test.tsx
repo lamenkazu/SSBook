@@ -2,22 +2,10 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { MockedProvider } from "@apollo/client/testing";
 import { MemoryRouter } from "react-router-dom";
 import { Header } from "./";
-import { GET_USER_PIC } from "../../GraphQL";
 
-const mockData = {
-  userPicture: "path/to/user-pic.jpg",
-};
+import { mocks } from "../../Mocks/AppMocks";
 
-const mocks = [
-  {
-    request: {
-      query: GET_USER_PIC,
-    },
-    result: {
-      data: mockData,
-    },
-  },
-];
+const userPicture = "path/to/user-pic.jpg";
 
 describe("Header Component", () => {
   it("should render <Header/> sucessfully", async () => {
@@ -47,7 +35,7 @@ describe("Header Component", () => {
 
     expect(logoElement).toBeInTheDocument();
     expect(userPicElement).toBeInTheDocument();
-    expect(userPicElement.src).toContain(mockData.userPicture);
+    expect(userPicElement.src).toContain(userPicture);
   });
 
   it("should render the search form", () => {

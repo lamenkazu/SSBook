@@ -6,6 +6,7 @@ import {
   GET_FAV_AUTHORS,
   GET_FAV_BOOKS,
   GET_LIB_BOOKS,
+  GET_USER_PIC,
   GetBookDataResponse,
 } from "../GraphQL";
 
@@ -50,7 +51,19 @@ const mockDataFavBooks: FavoriteBooksResponse = {
   ],
 };
 
+const mockDataUserPic = {
+  userPicture: "path/to/user-pic.jpg",
+};
+
 export const mocks = [
+  {
+    request: {
+      query: GET_USER_PIC,
+    },
+    result: {
+      data: mockDataUserPic,
+    },
+  },
   {
     request: {
       query: GET_BOOK_DATA,

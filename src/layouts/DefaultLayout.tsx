@@ -35,7 +35,7 @@ export function DefaultLayout() {
   }, [mobileSize, location.pathname, setIsMobile]);
 
   return (
-    <Container>
+    <Container data-testid={isMobile ? "header-mobile" : "header-desktop"}>
       {isMobile && <Header />}
       <Outlet />
       <Bottom />
