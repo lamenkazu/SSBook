@@ -1,7 +1,7 @@
 import { Container } from "./styles";
-import heartImg from "../../assets/coração.svg";
-import shareImg from "../../assets/share.svg";
-import saveImg from "../../assets/save.svg";
+import heartImg from "../../../assets/coração.svg";
+import shareImg from "../../../assets/share.svg";
+import saveImg from "../../../assets/save.svg";
 
 interface DetailOptionsProps {
   setIsOptionsMenuVisible?: React.Dispatch<React.SetStateAction<boolean>>;

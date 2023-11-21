@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-import favoriteImg from "../../assets/favoritar.svg";
-import favoritedImg from "../../assets/favoritado.png";
+import favoriteImg from "../../../assets/favoritar.svg";
+import favoritedImg from "../../../assets/favoritado.png";
 
-import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
+import { DEVICE_BREAKPOINTS } from "./../../../styles/deviceBreakpoints";
 
 interface favoriteBook {
   $isFavorite: boolean;

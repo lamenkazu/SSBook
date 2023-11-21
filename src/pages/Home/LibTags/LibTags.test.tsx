@@ -2,7 +2,12 @@ import { fireEvent, render, waitFor, screen } from "@testing-library/react";
 import { LibTags } from ".";
 import { MockedProvider } from "@apollo/client/testing";
 
-import { mocks, category1, category2, category3 } from "../../Mocks/AppMocks";
+import {
+  mocks,
+  category1,
+  category2,
+  category3,
+} from "../../../Mocks/AppMocks";
 
 describe("LibTags Component", () => {
   it("should render <LibTags/> sicessfully", async () => {

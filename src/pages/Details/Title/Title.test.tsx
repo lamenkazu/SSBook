@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { Title } from "./";
+import { Title } from ".";
 
 describe("Title Component", () => {
   it("should render the title and author name", () => {

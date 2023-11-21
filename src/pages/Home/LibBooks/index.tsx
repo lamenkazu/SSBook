@@ -3,11 +3,11 @@ import {
   GET_LIB_BOOKS,
   LibAllBooksResponse,
   mapCategoryToLabel,
-} from "../../GraphQL";
+} from "../../../GraphQL";
 
 import { Container, LibBookContainer, LibBook } from "./styles";
-import { Progress } from "../../components/Progress";
-import { StyledLink } from "../StyledLink";
+import { Progress } from "../../../components/Progress";
+import { StyledLink } from "../../../components/StyledLink";
 
 interface LibBooksProps {
   selectedCategory: string;

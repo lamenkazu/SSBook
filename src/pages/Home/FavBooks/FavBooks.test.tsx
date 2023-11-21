@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import { MockedProvider } from "@apollo/client/testing";
-import { mocks } from "../../Mocks/AppMocks";
+import { mocks } from "../../../Mocks/AppMocks";
 
 import { MemoryRouter } from "react-router-dom";
 

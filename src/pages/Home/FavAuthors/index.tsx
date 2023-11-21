@@ -1,8 +1,8 @@
 import { useQuery, QueryResult } from "@apollo/client";
-import { FavAuthorsResponse, GET_FAV_AUTHORS } from "../../GraphQL";
+import { FavAuthorsResponse, GET_FAV_AUTHORS } from "../../../GraphQL";
 
 import { Container, FavAuthor } from "./styles";
-import { Progress } from "../../components/Progress";
+import { Progress } from "../../../components/Progress";
 
 export function FavAuthors() {
   const {

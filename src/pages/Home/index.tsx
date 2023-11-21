@@ -4,10 +4,10 @@ import { Container, Tab, UnorderedList, ListItem, Head } from "./styles";
 import { Section } from "../../components/Section";
 import { MainCard } from "../../components/MainCard";
 import { Footer } from "../../components/Footer";
-import { FavBooks } from "../../components/FavBooks";
-import { FavAuthors } from "../../components/FavAuthors";
-import { LibTags } from "../../components/LibTags";
-import { LibBooks } from "../../components/LibBooks";
+import { FavBooks } from "./FavBooks";
+import { FavAuthors } from "./FavAuthors";
+import { LibTags } from "./LibTags";
+import { LibBooks } from "./LibBooks";
 
 export function Home() {
   const [selectedCategory, setSelectedCategory] = useState("Todos");

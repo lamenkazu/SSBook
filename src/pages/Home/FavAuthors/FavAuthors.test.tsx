@@ -2,7 +2,7 @@ import { render, waitFor, screen } from "@testing-library/react";
 import { MockedProvider } from "@apollo/client/testing";
 import { FavAuthors } from ".";
 
-import { mocks } from "../../Mocks/AppMocks";
+import { mocks } from "../../../Mocks/AppMocks";
 
 describe("FavAuthors Component", () => {
   it("should render <FavAuthors/> sucessfully", async () => {

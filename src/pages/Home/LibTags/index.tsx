@@ -3,11 +3,11 @@ import {
   AllBooksCategoryResponse,
   BOOK_CATEGORIES,
   mapCategoryToLabel,
-} from "../../GraphQL";
+} from "../../../GraphQL";
 
-import { Capsule } from "../../components/Capsule";
+import { Capsule } from "../../../components/Capsule";
 import { Container } from "./styles";
-import { Progress } from "../../components/Progress";
+import { Progress } from "../../../components/Progress";
 
 interface LibTagsProps {
   selectedCategory: string;

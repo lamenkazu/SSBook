@@ -7,8 +7,8 @@ import { GET_BOOK_DATA, GetBookDataResponse } from "../../GraphQL";
 import { Container, Cover, Protection } from "./styles";
 import { MainCard } from "../../components/MainCard";
 import { Footer } from "../../components/Footer";
-import { DetailOptions } from "../../components/DetailOptions";
-import { Title } from "../../components/Title";
+import { DetailOptions } from "./DetailOptions";
+import { Title } from "./Title";
 import optionsImg from "../../assets/options.svg";
 import backImg from "../../assets/back.svg";
 
@@ -32,7 +32,7 @@ export const Details = () => {
   const book = data?.book;
 
   const descriptionWithBreaks =
-    book?.description.replace(/\n/g, "<br />") || "";
+    book?.description.replace(/\n/g, "<br />") ?? "";
 
   return (
     <Container>
