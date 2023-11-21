@@ -7,7 +7,7 @@ import {
   GET_FAV_BOOKS,
   GET_LIB_BOOKS,
   GetBookDataResponse,
-} from "../@types/graphqlQuerries";
+} from "../GraphQL";
 
 export const category1 = "Ficção";
 export const category2 = "Não-Ficção";

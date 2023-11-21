@@ -2,7 +2,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { MockedProvider } from "@apollo/client/testing";
 import { MemoryRouter } from "react-router-dom";
 import { Header } from "./";
-import { GET_USER_PIC } from "../../@types/graphqlQuerries";
+import { GET_USER_PIC } from "../../GraphQL";
 
 const mockData = {
   userPicture: "path/to/user-pic.jpg",
