@@ -47,9 +47,19 @@ interface BookDetail {
   author: Author;
 }
 
+export interface UserPic {
+  userPicture: string;
+}
+
 export interface GetBookDataResponse {
   book: BookDetail;
 }
+
+export const GET_USER_PIC = gql`
+  query UserPic {
+    userPicture
+  }
+`;
 
 export const GET_BOOK_DATA = gql`
   query GetBook($id: ID!) {

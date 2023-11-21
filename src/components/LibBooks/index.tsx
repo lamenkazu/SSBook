@@ -45,7 +45,7 @@ export const LibBooks = ({ selectedCategory }: LibBooksProps) => {
               </StyledLink>
             ))
         ) : (
-          <Progress />
+          <Progress data-testid="progress" />
         )}
       </LibBookContainer>
     </Container>

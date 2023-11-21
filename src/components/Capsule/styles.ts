@@ -2,7 +2,7 @@ import { HTMLAttributes } from "react";
 import styled from "styled-components";
 
 interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
-  $isselected?: boolean;
+  $isSelected?: boolean;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -11,10 +11,10 @@ export const Container = styled.div<ContainerProps>`
   width: fit-content;
   padding: 0.6rem 1.6rem;
 
-  background-color: ${({ theme, $isselected }) =>
-    $isselected ? theme.PURPLE : theme.WHITE};
-  color: ${({ theme, $isselected }) =>
-    $isselected ? theme.WHITE : theme.GRAY_300};
+  background-color: ${({ theme, $isSelected }) =>
+    $isSelected ? theme.PURPLE : theme.WHITE};
+  color: ${({ theme, $isSelected }) =>
+    $isSelected ? theme.WHITE : theme.GRAY_300};
 
   cursor: pointer;
 `;

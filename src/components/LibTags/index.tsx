@@ -47,7 +47,7 @@ export const LibTags = ({
           />
         ))
       ) : (
-        <Progress />
+        <Progress data-testid="progress" />
       )}
     </Container>
   );

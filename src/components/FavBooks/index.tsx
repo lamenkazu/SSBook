@@ -16,18 +16,18 @@ export function FavBooks() {
   }: QueryResult<FavoriteBooksResponse> = useQuery(GET_FAV_BOOKS);
   return (
     <Container>
-      {!favBooksLoading ? (
+      {favBooksLoading ? (
+        <Progress data-testid="progress" />
+      ) : (
         favBooks?.favoriteBooks.map((favBook) => (
           <StyledLink to={`/details/${favBook.id}`} key={favBook.id}>
-            <FavBook>
+            <FavBook data-testid="favbook">
               <img src={favBook.cover} alt="Capa do livro" />
               <h3> {favBook.name} </h3>
               <span> {favBook.author.name} </span>
             </FavBook>
           </StyledLink>
         ))
-      ) : (
-        <Progress />
       )}
     </Container>
   );

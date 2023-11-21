@@ -25,7 +25,7 @@ export function FavAuthors() {
           </FavAuthor>
         ))
       ) : (
-        <Progress />
+        <Progress data-testid="progress" />
       )}
     </Container>
   );

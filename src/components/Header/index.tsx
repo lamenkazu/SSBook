@@ -1,3 +1,6 @@
+import { useQuery, QueryResult } from "@apollo/client";
+import { GET_USER_PIC, UserPic } from "../../@types/graphqlQuerries";
+
 import {
   Container,
   Avatar,
@@ -6,19 +9,18 @@ import {
   LabelSrOnly,
   Form,
   Actions,
-  Action,
   Separator,
   LogoLink,
 } from "./styles";
+
 import logoImg from "../../assets/Logo.svg";
 import searchImg from "../../assets/lupa.svg";
 import addImg from "../../assets/adicionar.svg";
 import heartImg from "../../assets/coração.svg";
-// import { useQuery, QueryResult } from "@apollo/client";
-// import { GET_USER_PIC, UserPic } from "./queries";
+import Action from "../Action";
 
 export function Header() {
-  // const { data }: QueryResult<UserPic> = useQuery(GET_USER_PIC);
+  const { data }: QueryResult<UserPic> = useQuery(GET_USER_PIC);
 
   return (
     <Container>
@@ -36,26 +38,24 @@ export function Header() {
         </Form>
 
         <Actions>
-          <Action>
-            <button id="actionAdd">
-              <img src={addImg} alt="" />
-              <label htmlFor="actionAdd">Adicionar</label>
-            </button>
-          </Action>
-
-          <Action>
-            <button id="actionFav">
-              <img src={heartImg} alt="" />
-              <label htmlFor="actionFav">Favoritos</label>
-            </button>
-          </Action>
+          <Action
+            id="actionAdd"
+            imgSrc={addImg}
+            imgAlt="Icone Adicionar"
+            label="Adicionar"
+          />
+          <Action
+            id="actionFav"
+            imgSrc={heartImg}
+            imgAlt="Icone Coração"
+            label="Favoritos"
+          />
 
           <Separator />
         </Actions>
 
         <Avatar>
-          {/* <img src={data?.userPicture} alt="Foto do usuário" /> */}
-          <img src="https://github.com/lamenkazu.png" alt="Foto do usuário" />
+          <img src={data?.userPicture} alt="Foto do usuário" />
           <p>Jucicreide</p>
         </Avatar>
       </Head>
