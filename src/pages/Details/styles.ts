@@ -23,7 +23,7 @@ export const Container = styled.div`
 
       display: flex;
       flex-direction: column;
-      min-height: 60vh;
+      min-height: 67vh;
       height: fit-content;
 
       p {

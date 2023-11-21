@@ -30,7 +30,13 @@ export const LibBook = styled.div`
     border-radius: 0.8rem;
   }
 
+  transition: all 250ms ease;
+
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
+    &:hover {
+      transform: scale(1.1);
+      filter: hue-rotate(7deg) contrast(101%) saturate(150%);
+    }
     > img {
       height: 10rem;
       width: 6.8rem;

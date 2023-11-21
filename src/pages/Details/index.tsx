@@ -1,16 +1,16 @@
 import { Link, useParams } from "react-router-dom";
-import { Container, Cover, Protection } from "./styles";
 
 import { useState, useEffect } from "react";
 import { useQuery, QueryResult } from "@apollo/client";
 import { GET_BOOK_DATA, GetBookDataResponse } from "../../GraphQL";
 
+import { Container, Cover, Protection } from "./styles";
 import { MainCard } from "../../components/MainCard";
 import { Footer } from "../../components/Footer";
 import { DetailOptions } from "../../components/DetailOptions";
+import { Title } from "../../components/Title";
 import optionsImg from "../../assets/options.svg";
 import backImg from "../../assets/back.svg";
-import { Title } from "../../components/Title";
 
 export const Details = () => {
   useEffect(() => {

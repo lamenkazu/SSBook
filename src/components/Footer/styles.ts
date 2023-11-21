@@ -15,6 +15,7 @@ export const Container = styled.div`
   align-content: start;
 
   align-items: center;
+  margin-top: 3rem;
 
   > img {
     width: 7.6897rem;

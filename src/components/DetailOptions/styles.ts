@@ -37,5 +37,11 @@ export const Container = styled.ul`
     position: absolute;
     width: 29.6rem;
     margin-top: 28rem;
+
+    > li {
+      &:hover {
+        transform: scale(1.2) translateX(30px);
+      }
+    }
   }
 `;
