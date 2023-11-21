@@ -5,12 +5,17 @@ export const Container = styled.div``;
 
 export const LibBookContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
+
   column-gap: 3.5rem;
   row-gap: 2rem;
 
-  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
-    grid-template-columns: 1fr;
+  @media (min-width: ${DEVICE_BREAKPOINTS.SM}) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
+    grid-template-columns: repeat(3, 1fr);
   }
 `;
 

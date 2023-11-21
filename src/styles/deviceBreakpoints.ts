@@ -1,3 +1,4 @@
 export const DEVICE_BREAKPOINTS = {
-    MD: '1000px',
-}
+  SM: "700px",
+  MD: "1000px",
+};
