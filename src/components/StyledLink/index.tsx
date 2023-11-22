@@ -5,6 +5,6 @@ interface Props extends PropsWithChildren {
   to: string;
 }
 
-export function StyledLink({ children, to }: Props) {
+export function StyledLink({ children, to }: Readonly<Props>) {
   return <Container to={to}>{children}</Container>;
 }

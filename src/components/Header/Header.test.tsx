@@ -29,9 +29,9 @@ describe("Header Component", () => {
     );
 
     const logoElement = screen.getByAltText("Logo do SSBook");
-    const userPicElement = (await screen.findByAltText(
+    const userPicElement: HTMLImageElement = await screen.findByAltText(
       "Foto do usuário"
-    )) as HTMLImageElement;
+    );
 
     expect(logoElement).toBeInTheDocument();
     expect(userPicElement).toBeInTheDocument();

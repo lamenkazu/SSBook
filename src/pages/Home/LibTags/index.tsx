@@ -38,9 +38,9 @@ export const LibTags = ({
       />
 
       {!allBooksLoading ? (
-        uniqueCategories.map((category, index: number) => (
+        uniqueCategories.map((category) => (
           <Capsule
-            key={index}
+            key={category}
             title={category}
             isSelected={selectedCategory === category}
             $onClick={() => setSelectedCategory(category)}

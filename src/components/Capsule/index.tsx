@@ -11,7 +11,7 @@ export function Capsule({
   isSelected = false,
   $onClick,
   ...rest
-}: CapsuleProps) {
+}: Readonly<CapsuleProps>) {
   const handleClick = () => {
     if ($onClick) {
       $onClick();

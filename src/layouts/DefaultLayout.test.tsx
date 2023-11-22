@@ -17,24 +17,4 @@ describe("DefaultLayout Component", () => {
 
     expect(container.firstChild).toBeInTheDocument();
   });
-
-  //   it("should renders DefaultLayout component", () => {
-  //     // Mock para simular window.innerWidth
-
-  //     render(
-  //       <MemoryRouter>
-  //         <MockedProvider mocks={mocks} addTypename={false}>
-  //           <DefaultLayout />
-  //         </MockedProvider>
-  //       </MemoryRouter>
-  //     );
-
-  //     Object.defineProperty(window, "innerWidth", { value: 500 });
-
-  //     const headerMobile = screen.getByTestId("header-mobile");
-  //     const headerDesktop = screen.queryByTestId("header-desktop");
-
-  //     expect(headerMobile).toBeInTheDocument();
-  //     expect(headerDesktop).toBeNull();
-  //   });
 });

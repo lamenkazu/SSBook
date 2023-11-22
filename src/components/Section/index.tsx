@@ -6,7 +6,11 @@ interface SectionProps extends PropsWithChildren {
   hasMore?: boolean;
 }
 
-export function Section({ title, children, hasMore = false }: SectionProps) {
+export function Section({
+  title,
+  children,
+  hasMore = false,
+}: Readonly<SectionProps>) {
   return (
     <Container>
       <div>

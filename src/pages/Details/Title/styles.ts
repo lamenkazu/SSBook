@@ -5,7 +5,7 @@ import favoritedImg from "../../../assets/favoritado.png";
 
 import { DEVICE_BREAKPOINTS } from "./../../../styles/deviceBreakpoints";
 
-interface favoriteBook {
+interface FavoriteBook {
   $isFavorite: boolean;
 }
 
@@ -50,7 +50,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Fav = styled.img<favoriteBook>`
+export const Fav = styled.img<FavoriteBook>`
   width: 2.4rem;
   height: 2.4rem;
 

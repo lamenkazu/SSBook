@@ -18,26 +18,30 @@ export const Container = styled.ul`
 
   cursor: pointer;
 
-  > li {
-    display: flex;
-    align-items: center;
-
-    gap: 1.6rem;
-
-    /* border-bottom: 1px solid ${({ theme }) => theme.GRAY_100}; */
-    width: 100%;
-
-    transition: all 0.2s ease;
-    &:hover {
-      transform: scale(0.98);
-    }
-  }
-
   @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
     position: absolute;
     width: 29.6rem;
     margin-top: 28rem;
+  }
+`;
 
+export const Image = styled.img``;
+
+export const StyledLi = styled.li`
+  display: flex;
+  align-items: center;
+
+  gap: 1.6rem;
+
+  /* border-bottom: 1px solid ${({ theme }) => theme.GRAY_100}; */
+  width: 100%;
+
+  transition: all 0.2s ease;
+  &:hover {
+    transform: scale(0.98);
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINTS.MD}) {
     > li {
       &:hover {
         transform: scale(1.2) translateX(30px);
