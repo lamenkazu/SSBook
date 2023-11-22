@@ -1,27 +1,40 @@
-# React + TypeScript + Vite
+# SSBook
+Projeto Front-End: Aplicação que gerencia os livros do usuário, mostrando sua biblioteca de livros e informações a respeito de cada livro.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![284762941-53fb34e7-d9ad-4657-8938-bc61f1e72586](https://github.com/lamenkazu/SSBook/assets/23318318/56dc579d-e62f-4821-846c-b041725bfb38)
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologias utilizadas
+- Typescript, React, Styled Components, Jest, GraphQL
+- Vite, Prettier, SonarLint, Apollo Client
 
-## Expanding the ESLint configuration
+## Deploy:
+https://lamenkazu.github.io/SSBook/
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Instalação
+Sem necessidade de adicionar a mesma versão do Node:
+- npm i
+- npm run dev
 
-- Configure the top-level `parserOptions` property like this:
+## Fluxo de Telas
+- Home Page
+  - Lista de Livros Favoritos
+  - Lista de Autores Favoritos
+  - Lista de Livros
+- Details Page
+  - Detalhes do livro selecionado
+Ao clicar em qualquer livro na Home Page, você é redirecionado para a Details Page relativa ao livro selecionado.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+## Aplicação 100% coberta de testes
+![imagem_2023-11-21_224521547](https://github.com/lamenkazu/SSBook/assets/23318318/adf92e9c-3249-4f7f-b6ef-9e6769e1be2f) ![image](https://github.com/lamenkazu/SSBook/assets/23318318/c8572c4f-f3f0-4095-a8ff-578eef2e69a7)
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+## Práticas Adotadas:
+- Mobile First com Responsividade Desktop
+- Revisão de Código: Inspecionamento e avaliação do código em busca de melhorias
+- Melhoria Contínua: Estudo de tecnologias até então desconhecidas e novas técnicas durante o desenvolvimento.
+
+## Pros
+- Escalabilidade: aberto para melhorias e crescimento da complexidade do sistema.
+- Otimização: Melhores práticas para melhor desempenho e performance.
+- Clean Code: Código de fácil leitura, sem necessidade extrema de comentários mas com alta compreensibilidade.
