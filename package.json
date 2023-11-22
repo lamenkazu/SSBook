@@ -11,14 +11,13 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "test": "jest --watchAll"
+    "test": "jest"
   },
   "dependencies": {
     "@apollo/client": "^3.8.7",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/joy": "^5.0.0-beta.15",
-    "@reduxjs/toolkit": "^1.9.7",
     "graphql": "^16.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
